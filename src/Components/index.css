@@ -1,0 +1,164 @@
+.header{
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    background-color: green;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("./assets/Wooden Background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+hr{
+    width: 70%;
+    color: black;
+    margin: auto;
+}
+
+.logo{
+    width: 80px;
+    height: 80px;
+    padding: 15px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.heading{
+    font-family: monospace;
+    font-size: 50px;
+}
+
+.tile{
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    pointer-events: auto;
+}
+.tile:hover{
+    background-color: darkgreen;
+}
+
+.disc{
+    width: 35px;
+    height: 35px;
+}
+
+.board-container{
+    margin: 40px;
+}
+
+.body-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-bar{
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+.score-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+    margin: 20px 10px;
+}
+
+.scores{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 404px;
+    height: 404px;
+    border: 2px solid black;
+    gap: 0;
+}
+
+.game-over{
+
+}
+
+.score {
+    background-color: green;
+    font-family: monospace;
+    font-size: 36px;
+    width: 100px;
+    border: 3px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.to-play {
+    border-radius: 12px;
+    width: 200px;
+    height: 100%;
+    padding: 20px;
+    margin: 20px;
+    font-family: monospace;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.undo-button{
+    background-color: black;
+    color: white;
+    padding: 20px 40px;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.reset-button{
+    background-color: black;
+    color: white;
+    padding: 20px 40px;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.reset-undo-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 10px;
+    gap: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .body-container{
+        flex-direction: column;
+    }
+}
