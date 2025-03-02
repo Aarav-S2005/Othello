@@ -103,19 +103,17 @@ export default function App() {
         setMovesPlayed((prevState) => prevState +1)
 
     }
-    const possible_moves = () => {
-        const poss_moves = [];
+    const possible_moves = (player) => {
         for(let i = 0; i < board.length; i++){
             for(let j = 0; j < board[i].length; j++){
-                if(board[i][j] === " ") {
-                    const trav_list = possible_traverse_directions(i, j);
-                    if (trav_list.length !== 0) {
-                        poss_moves.push(trav_list)
+                for(let k = 0; k < 8; k++){
+                    if(board[i][j] !== player){
+                        return true
                     }
                 }
             }
         }
-        return poss_moves;
+        return false
     }
     const undoMove = () => {
         setStack(prevStack => {
@@ -127,7 +125,7 @@ export default function App() {
             setCurrentPlayer(prev => (prev === "B") ? "W" : "B")
             return newStack;
         });
-
+        setGameOver(false)
     };
     const resetGame = () => {
         setWinner(" ")
@@ -171,21 +169,29 @@ export default function App() {
             setGameOver(true);
             return;
         }
-        if(!possible_moves()){
-            setCurrentPlayer(prev => (prev === "B") ? "W" : "B")
-            if(!possible_moves()){
-                setGameOver(true);
-            }
-        }
-        if(whiteScore === blackScore && gameOver){
+        if(whiteScore === blackScore){
             setWinner("tie")
         }
-        else if(gameOver) setWinner((blackScore > whiteScore) ? "B" : "W");
+        else setWinner((blackScore > whiteScore) ? "B" : "W");
     }, [board, movesPlayed])
+    useEffect(() => {
+
+        if(possible_moves(currentPlayer)){
+            return;
+        }
+        else {
+            setCurrentPlayer(currentPlayer);
+            if(!possible_moves(currentPlayer)){
+                setGameOver(true);
+                setWinner((blackScore > whiteScore) ? "B" : (whiteScore > blackScore) ? "W" : "Draw");
+            }
+        }
+
+    }, [currentPlayer])
 
     return (
         <div>
-            {gameOver && <Confetti width={width} height={height} />}
+            {gameOver && winner!=="Draw" && <Confetti width={width} height={height} />}
             <Header />
             <GameContext.Provider value={{
                 board, setBoard,

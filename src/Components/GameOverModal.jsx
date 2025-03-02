@@ -14,7 +14,7 @@ export default function GameOverModal({winner, setGameOver, blackScore, whiteSco
                 <h1 className={"modal-heading"}>GAME OVER</h1>
                 <div>
                     <div className={"modal-winner"}>
-                        {(winner === "B") ? "Black" : "White"} Wins !!!
+                        {(winner === "B") ? "Black Wins!!!" : (winner === "W") ? "White Wins!!!" : "Draw!!!"}
                     </div>
                     <div>
                         <h3 className={"modal-score-heading"}></h3>
