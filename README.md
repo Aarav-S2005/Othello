@@ -5,9 +5,7 @@ This is a classic implementation of the **Othello** (also known as Reversi) game
 ## Features
 - Interactive and user-friendly UI
 - Two-player mode
-- Valid move highlighting
 - Score tracking
-- Responsive design
 
 ## Installation
 
@@ -32,7 +30,6 @@ This is a classic implementation of the **Othello** (also known as Reversi) game
 ## Technologies Used
 - React
 - Vite
-- Tailwind CSS (if used for styling)
 
 ## How to Play
 1. The game starts with four pieces placed in the center of the board.
@@ -42,18 +39,9 @@ This is a classic implementation of the **Othello** (also known as Reversi) game
 5. The game ends when no valid moves are available.
 6. The player with the most pieces wins!
 
-## Future Enhancements
-- AI opponent for single-player mode
-- Undo/Redo functionality
-- Dark mode support
-- Online multiplayer
 
 ## Contributing
 Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
-## License
-This project is licensed under the [MIT License](LICENSE).
 
----
-Feel free to modify this README as per your project's structure and requirements!
 
