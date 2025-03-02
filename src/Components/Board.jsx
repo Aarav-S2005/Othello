@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import {GameContext} from "../App.jsx";
 import Tile from "./Tile.jsx";
-import "./index.css"
+import "./styles/index.css"
 
 
 export default function Board(){

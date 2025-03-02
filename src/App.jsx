@@ -1,12 +1,9 @@
-import {useState, createContext, useEffect, useCallback} from 'react'
+import {useState, createContext, useEffect} from 'react'
 import Header from "./Components/Header.jsx";
 import Board from "./Components/Board.jsx";
-import ScoreLabel from "./Components/ScoreLabel.jsx";
-import ToPlay from "./Components/ToPlay.jsx";
-import GameOverPopUp from "./Components/GameOverPopUp.jsx";
 import Confetti from "react-confetti";
-import Undo from "./Components/Undo.jsx";
 import SideBar from "./Components/SideBar.jsx";
+import GameOverModal from "./Components/GameOverModal.jsx";
 
 export const GameContext = createContext();
 
@@ -132,9 +129,6 @@ export default function App() {
         });
 
     };
-    useEffect(() => {
-        console.log(stack)
-    }, [stack])
     const resetGame = () => {
         setWinner(" ")
         setGameOver(false);
@@ -183,10 +177,10 @@ export default function App() {
                 setGameOver(true);
             }
         }
-        if(whiteScore === blackScore){
+        if(whiteScore === blackScore && gameOver){
             setWinner("tie")
         }
-        else setWinner((blackScore > whiteScore) ? "B" : "W");
+        else if(gameOver) setWinner((blackScore > whiteScore) ? "B" : "W");
     }, [board, movesPlayed])
 
     return (
@@ -205,7 +199,8 @@ export default function App() {
                 </div>
 
             </GameContext.Provider>
-            {gameOver && <GameOverPopUp winner={winner}/>}
+            {gameOver && <GameOverModal winner={winner} setGameOver={setGameOver} whiteScore={whiteScore} blackScore={blackScore} reset={resetGame}/>}
+
         </div>
       )
 }

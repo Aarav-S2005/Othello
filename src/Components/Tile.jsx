@@ -1,6 +1,6 @@
 import blackDisc from "./assets/Black Peice.png"
 import whiteDisc from "./assets/White Peice.png"
-import "./index.css"
+import "./styles/index.css"
 
 export default function Tile({value = " ", onClick}){
 
